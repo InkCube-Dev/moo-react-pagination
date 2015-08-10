@@ -15,6 +15,10 @@
     "react"
   ],
   "author": "Jon Saw <jon.saw@gmail.com>",
+  "repository": {
+    "type" : "git",
+    "url" : "https://github.com/MooCommerce/moo-react-pagination"
+  },
   "license": "ISC",
   "dependencies": {
     "react": "^0.13.3"
