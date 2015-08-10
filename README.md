@@ -1,4 +1,5 @@
 # MOO Pagination Component for React
+Pagination Component for React.js. View example [here](http://moocommerce.github.io/moo-react-pagination/).
 
 ## Customize Moo Pagination for React
 1. Clone this repository.
