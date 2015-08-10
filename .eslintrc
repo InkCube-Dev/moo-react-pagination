@@ -1,0 +1,25 @@
+{
+  "env": {
+    "node": true,
+    "es6": true
+  },
+
+  "globals": {
+    "React": true
+  },
+
+  "ecmaFeatures": {
+    "modules": true,
+    "jsx": true
+  },
+
+  "plugins": [
+    "react"
+  ],
+
+  "rules": {
+    "quotes": [2, "single", "avoid-escape"],
+    "semi": [2, "always"],
+    "comma-dangle": [2, "always-multiline"]
+  }
+}
