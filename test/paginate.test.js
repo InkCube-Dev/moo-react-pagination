@@ -83,7 +83,7 @@ describe('<Paginate />', () => {
   });
 
   describe('on click', () => {
-    let pageNumber, limit, offset;
+    let pageNumber, limit, offset, end;
     let paginate = (
       <Paginate
         count={100}
@@ -92,6 +92,7 @@ describe('<Paginate />', () => {
           pageNumber = page.page;
           limit = page.limit;
           offset = page.offset;
+          end = page.end;
         }}/>
     );
     let component;
@@ -114,5 +115,9 @@ describe('<Paginate />', () => {
       expect(offset).to.equal(20);
       done();
     });
+    it('should call end', (done) => {
+      expect(end).to.equal(30);
+      done();
+    })
   });
 });

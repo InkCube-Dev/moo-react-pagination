@@ -78,10 +78,12 @@ class Paginate extends React.Component {
       page: page,
     }, () => {
       if (this.props.onClick) {
+        let offset = this.getOffset();
         let data = {
           page: this.state.page,
           limit: this.props.perPage,
-          offset: this.getOffset(),
+          offset,
+          end: offset + this.props.perPage,
         };
         this.props.onClick(data);
       }
