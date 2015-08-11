@@ -62,6 +62,14 @@ class Paginate extends React.Component {
   }
 
   /**
+   * Calculate offset
+   * @return {Number}
+   */
+  getOffset() {
+    return (this.state.page - 1) * this.props.perPage;
+  }
+
+  /**
    * Handle click event by passing on to onClick prop if available
    * @param  {Object} event
    */
@@ -70,7 +78,12 @@ class Paginate extends React.Component {
       page: page,
     }, () => {
       if (this.props.onClick) {
-        this.props.onClick(this.state);
+        let data = {
+          page: this.state.page,
+          limit: this.props.perPage,
+          offset: this.getOffset(),
+        };
+        this.props.onClick(data);
       }
     });
   }

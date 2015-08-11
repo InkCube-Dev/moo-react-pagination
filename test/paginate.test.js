@@ -83,13 +83,15 @@ describe('<Paginate />', () => {
   });
 
   describe('on click', () => {
-    let pageNumber;
+    let pageNumber, limit, offset;
     let paginate = (
       <Paginate
         count={100}
         perPage={10}
         onClick={(page) => {
           pageNumber = page.page;
+          limit = page.limit;
+          offset = page.offset;
         }}/>
     );
     let component;
@@ -102,6 +104,14 @@ describe('<Paginate />', () => {
       let pageDoms = React.findDOMNode(component).getElementsByTagName('A');
       TestUtils.Simulate.click(pageDoms[4]); // Click page 3
       expect(pageNumber).to.equal(3);
+      done();
+    });
+    it('should call limit', (done) => {
+      expect(limit).to.equal(10);
+      done();
+    });
+    it('should call offset', (done) => {
+      expect(offset).to.equal(20);
       done();
     });
   });
