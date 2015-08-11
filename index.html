@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
     <title>Moo React Pagination | Example</title>
-    <link href='http://fonts.googleapis.com/css?family=Raleway:900' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Raleway:400,700' rel='stylesheet' type='text/css'>
     <link rel="stylesheet"
       href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
     <link rel="stylesheet"
@@ -27,6 +27,17 @@
       .pagination > li > a:hover {
         color: #924A02;
       }
+      .birds {
+        width: 600px;
+        margin: 0 auto 20px;
+        text-align: left;
+        font-family: 'Raleway', sans-serif;
+        color: white;
+      }
+      .code {
+        width: 600px;
+        margin: 0 auto 20px;
+      }
     </style>
   </head>
   <body>
@@ -34,36 +45,68 @@
       <div class="col-lg-12">
         <h1 class="text-center">MOO React Pagination</h1>
         <div class="text-center" id="moo-react-pagination"></div>
-        <pre class="hljs">
-          <code>
-  import React from 'react';
-  import {Paginate} from 'moo-react-pagination';
+        <pre class="hljs code">
+          <code class="javascript">
+import React from 'react';
+import {Paginate} from '../lib/pagination';
+import {sigthings} from './data';
 
-  class App extends React.Component {
-    constructor(props) {
-      super(props);
-      this.state = {
-        page: 1,
-      };
-    }
-    handleClick(pagination) {
-      this.setState({
-        page: pagination.page,
-      });
-    }
-    render() {
+class App extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      page: 1,
+      perPage: 5,
+      offset: 0,
+      end: 5,
+    };
+  }
+  handleClick(pagination) {
+    let {page, offset, end} = pagination;
+    this.setState({
+      page,
+      offset,
+      end,
+    });
+  }
+  render() {
+    let {offset, end} = this.state;
+    let birds = sigthings.slice(offset, end).map((bird, index) => {
       return (
+        &lt;tr key={index}&gt;
+          &lt;td&gt;{bird.Species.ScientificName}&lt;/td&gt;
+          &lt;td&gt;{bird.Species.AcceptedCommonName}&lt;/td&gt;
+          &lt;td&gt;{bird.SightingRecords}&lt;/td&gt;
+        &lt;/tr&gt;
+      );
+    });
+    return (
+      &lt;div&gt;
         &lt;Paginate
-          className='pagination'
-          count={100}
+          className="pagination"
+          count={sigthings.length}
           initialPage={this.state.page}
           numberCells={7}
-          onClick={this.handleClick.bind(this)} /&gt
-      );
-    }
+          perPage={this.state.perPage}
+          onClick={this.handleClick.bind(this)} /&gt;
+        &lt;table className="birds table"&gt;
+          &lt;thead&gt;
+            &lt;tr&gt;
+              &lt;th&gt;Scientific Name&lt;/th&gt;
+              &lt;th&gt;Common Name&lt;/th&gt;
+              &lt;th&gt;# Sightings&lt;/th&gt;
+            &lt;/tr&gt;
+          &lt;/thead&gt;
+          &lt;tbody&gt;
+            {birds}
+          &lt;/tbody&gt;
+        &lt;/table&gt;
+      &lt;/div&gt;
+    );
   }
+}
 
-  React.render(&lt;App /&gt, document.getElementById('moo-react-pagination'));
+React.render(&lt;App /&gt;, document.getElementById('moo-react-pagination'));
           </code>
         </pre>
       </div>
