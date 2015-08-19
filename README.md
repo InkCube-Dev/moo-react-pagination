@@ -78,7 +78,7 @@ Length of data.
 | `Number`   | `false`    | 0           |
 
 
-### initialPage
+#### initialPage
 Initial start page.
 
 | propType   | isRequired | defaultProp |
@@ -101,14 +101,14 @@ Example:
 | `Object`   | `false`    |
 
 
-### numberCells
+#### numberCells
 Number of numbered page cells to show in pagination list.
 
 | propType   | isRequired | defaultProp |
 |------------|------------|-------------|
 | `Number`   | `false`    | 8           |
 
-### perPage
+#### perPage
 Results per page.
 
 | propType   | isRequired | defaultProp |
