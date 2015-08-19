@@ -70,14 +70,51 @@ React.render(<App />, document.getElementById('moo-react-pagination'));
 ```
 
 ## API Documentation
-### Labels
-Use `labels` prop to customize labels.
+#### count
+Length of data.
+
+| propType   | isRequired | defaultProp |
+|------------|------------|-------------|
+| `Number`   | `false`    | 0           |
+
+
+### initialPage
+Initial start page.
+
+| propType   | isRequired | defaultProp |
+|------------|------------|-------------|
+| `Number`   | `false`    | 1           |
+
+#### labels
+Overwrite default label values.
+
+Example:
 
 ```javascript
 <Paginate
   count={100}
   labels={{first: '<<', prev: '<', next: '>', last: '>>'}} />
 ```
+
+| propType   | isRequired |
+|------------|------------|
+| `Object`   | `false`    |
+
+
+### numberCells
+Number of numbered page cells to show in pagination list.
+
+| propType   | isRequired | defaultProp |
+|------------|------------|-------------|
+| `Number`   | `false`    | 8           |
+
+### perPage
+Results per page.
+
+| propType   | isRequired | defaultProp |
+|------------|------------|-------------|
+| `Number`   | `false`    | 10          |
+
 
 ## Customize Moo Pagination for React
 1. Clone this repository.
