@@ -112,20 +112,20 @@ class Paginate extends React.Component {
         <Page
           number={1}
           isDisabled={this.getPageIsDisabled.bind(this)}
-          onClick={this.handlePageClick.bind(this)}>First</Page>
+          onClick={this.handlePageClick.bind(this)}>{this.props.labels.first || 'First'}</Page>
         <Page
           number={this.getPreviousPage(1)}
           isDisabled={this.getPageIsDisabled.bind(this)}
-          onClick={this.handlePageClick.bind(this)}>Prev</Page>
+          onClick={this.handlePageClick.bind(this)}>{this.props.labels.prev || 'Prev'}</Page>
         {pages}
         <Page
           number={this.getNextPage(totalPages)}
           isDisabled={this.getPageIsDisabled.bind(this)}
-          onClick={this.handlePageClick.bind(this)}>Next</Page>
+          onClick={this.handlePageClick.bind(this)}>{this.props.labels.next || 'Next'}</Page>
         <Page
           number={totalPages}
           isDisabled={this.getPageIsDisabled.bind(this)}
-          onClick={this.handlePageClick.bind(this)}>Last</Page>
+          onClick={this.handlePageClick.bind(this)}>{this.props.labels.next || 'Last'}</Page>
       </ul>
     );
   }
@@ -134,15 +134,17 @@ class Paginate extends React.Component {
 Paginate.defaultProps = {
   count: 0,
   initialPage: 1,
-  perPage: 10,
+  labels: {},
   numberCells: 8,
+  perPage: 10,
 };
 
 Paginate.propTypes = {
   count: React.PropTypes.number,
   initialPage: React.PropTypes.number,
-  perPage: React.PropTypes.number,
+  labels: React.PropTypes.object,
   numberCells: React.PropTypes.number,
+  perPage: React.PropTypes.number,
 };
 
 export default Paginate;

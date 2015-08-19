@@ -17,6 +17,7 @@ describe('<Paginate />', () => {
       expect(component.props).to.deep.equal({
         count: 100,
         initialPage: 1,
+        labels: {},
         perPage: 10,
         numberCells: 8,
       });
@@ -82,6 +83,41 @@ describe('<Paginate />', () => {
     });
   });
 
+  describe('with custom labels', () => {
+    describe('with custom first page', () => {
+      let paginate = <Paginate labels={{first: '<<'}} />;
+      let component = TestUtils.renderIntoDocument(paginate);
+      let lists = React.findDOMNode(component).getElementsByTagName('LI');
+      it('should render custom first page', () => {
+        expect(lists[0].textContent).to.equal('<<');
+      });
+    });
+    describe('with custom prev page', () => {
+      let paginate = <Paginate labels={{prev: '<'}} />;
+      let component = TestUtils.renderIntoDocument(paginate);
+      let lists = React.findDOMNode(component).getElementsByTagName('LI');
+      it('should render custom prev page', () => {
+        expect(lists[1].textContent).to.equal('<');
+      });
+    });
+    describe('with custom next page', () => {
+      let paginate = <Paginate labels={{next: '>'}} />;
+      let component = TestUtils.renderIntoDocument(paginate);
+      let lists = React.findDOMNode(component).getElementsByTagName('LI');
+      it('should render custom next page', () => {
+        expect(lists[lists.length - 2].textContent).to.equal('>');
+      });
+    });
+    describe('with custom last page', () => {
+      let paginate = <Paginate labels={{next: '>>'}} />;
+      let component = TestUtils.renderIntoDocument(paginate);
+      let lists = React.findDOMNode(component).getElementsByTagName('LI');
+      it('should render custom last page', () => {
+        expect(lists[lists.length - 1].textContent).to.equal('>>');
+      });
+    });
+  });
+
   describe('on click', () => {
     let pageNumber, limit, offset, end;
     let paginate = (
@@ -118,6 +154,6 @@ describe('<Paginate />', () => {
     it('should call end', (done) => {
       expect(end).to.equal(30);
       done();
-    })
+    });
   });
 });
