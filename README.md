@@ -37,6 +37,16 @@ Pagination Component for React.js. View example [here](http://moocommerce.github
   React.render(<App />, document.getElementById('moo-react-pagination'));
   ```
 
+## API Documentation
+### Labels
+Use `labels` prop to customize labels.
+
+```javascript
+<Paginate
+  count={100}
+  labels={{first: '<<', prev: '<', next: '>', last: '>>'}} />
+```
+
 ## Customize Moo Pagination for React
 1. Clone this repository.
 2. Run `npm install`.
