@@ -62,7 +62,7 @@
 	
 	var _libPagination = __webpack_require__(157);
 	
-	var _data = __webpack_require__(162);
+	var _data = __webpack_require__(161);
 	
 	var App = (function (_React$Component) {
 	  _inherits(App, _React$Component);
@@ -20776,16 +20776,16 @@
 	      return _react2['default'].createElement('ul', { className: this.props.className }, _react2['default'].createElement(_page2['default'], {
 	        number: 1,
 	        isDisabled: this.getPageIsDisabled.bind(this),
-	        onClick: this.handlePageClick.bind(this) }, 'First'), _react2['default'].createElement(_page2['default'], {
+	        onClick: this.handlePageClick.bind(this) }, this.props.labels.first || 'First'), _react2['default'].createElement(_page2['default'], {
 	        number: this.getPreviousPage(1),
 	        isDisabled: this.getPageIsDisabled.bind(this),
-	        onClick: this.handlePageClick.bind(this) }, 'Prev'), pages, _react2['default'].createElement(_page2['default'], {
+	        onClick: this.handlePageClick.bind(this) }, this.props.labels.prev || 'Prev'), pages, _react2['default'].createElement(_page2['default'], {
 	        number: this.getNextPage(totalPages),
 	        isDisabled: this.getPageIsDisabled.bind(this),
-	        onClick: this.handlePageClick.bind(this) }, 'Next'), _react2['default'].createElement(_page2['default'], {
+	        onClick: this.handlePageClick.bind(this) }, this.props.labels.next || 'Next'), _react2['default'].createElement(_page2['default'], {
 	        number: totalPages,
 	        isDisabled: this.getPageIsDisabled.bind(this),
-	        onClick: this.handlePageClick.bind(this) }, 'Last'));
+	        onClick: this.handlePageClick.bind(this) }, this.props.labels.next || 'Last'));
 	    }
 	  }]);
 	
@@ -20795,15 +20795,17 @@
 	Paginate.defaultProps = {
 	  count: 0,
 	  initialPage: 1,
-	  perPage: 10,
-	  numberCells: 8
+	  labels: {},
+	  numberCells: 8,
+	  perPage: 10
 	};
 	
 	Paginate.propTypes = {
 	  count: _react2['default'].PropTypes.number,
 	  initialPage: _react2['default'].PropTypes.number,
-	  perPage: _react2['default'].PropTypes.number,
-	  numberCells: _react2['default'].PropTypes.number
+	  labels: _react2['default'].PropTypes.object,
+	  numberCells: _react2['default'].PropTypes.number,
+	  perPage: _react2['default'].PropTypes.number
 	};
 	
 	exports['default'] = Paginate;
@@ -21033,8 +21035,7 @@
 	module.exports = exports["default"];
 
 /***/ },
-/* 161 */,
-/* 162 */
+/* 161 */
 /***/ function(module, exports) {
 
 	'use strict';
