@@ -118,6 +118,6 @@ describe('<Paginate />', () => {
     it('should call end', (done) => {
       expect(end).to.equal(30);
       done();
-    })
+    });
   });
 });
