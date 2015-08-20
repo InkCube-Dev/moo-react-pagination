@@ -109,7 +109,7 @@ describe('<Paginate />', () => {
       });
     });
     describe('with custom last page', () => {
-      let paginate = <Paginate labels={{next: '>>'}} />;
+      let paginate = <Paginate labels={{last: '>>'}} />;
       let component = TestUtils.renderIntoDocument(paginate);
       let lists = React.findDOMNode(component).getElementsByTagName('LI');
       it('should render custom last page', () => {

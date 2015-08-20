@@ -125,7 +125,7 @@ class Paginate extends React.Component {
         <Page
           number={totalPages}
           isDisabled={this.getPageIsDisabled.bind(this)}
-          onClick={this.handlePageClick.bind(this)}>{this.props.labels.next || 'Last'}</Page>
+          onClick={this.handlePageClick.bind(this)}>{this.props.labels.last || 'Last'}</Page>
       </ul>
     );
   }
