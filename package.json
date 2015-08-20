@@ -1,6 +1,6 @@
 {
   "name": "moo-react-pagination",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "description": "React pagination component",
   "main": "lib/pagination.js",
   "scripts": {
