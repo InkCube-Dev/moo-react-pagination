@@ -75,6 +75,24 @@ describe('<Paginate />', () => {
     });
   });
 
+  describe('with no count', () => {
+    let paginate = <Paginate count={0} />;
+    let component = TestUtils.renderIntoDocument(paginate);
+    let pageList = React.findDOMNode(component).getElementsByTagName('LI');
+    it('should disable first page', () => {
+      expect(pageList[0].className).to.equal('disabled');
+    });
+    it('should disable prev page', () => {
+      expect(pageList[1].className).to.equal('disabled');
+    });
+    it('should disable next page', () => {
+      expect(pageList[pageList.length - 2].className).to.equal('disabled');
+    });
+    it('should disable last page', () => {
+      expect(pageList[pageList.length - 1].className).to.equal('disabled');
+    });
+  });
+
   describe('with className', () => {
     let paginate = <Paginate className="paginate" />;
     let component = TestUtils.renderIntoDocument(paginate);
