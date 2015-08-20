@@ -69,7 +69,7 @@ describe('<Paginate />', () => {
       let pageList = React.findDOMNode(component).getElementsByTagName('LI');
       for (let i in pageList) {
         if (i > 2) {
-          expect(pageList[i].getAttribute('disabled')).to.equal(null);
+          expect(pageList[i].className).to.equal('');
         }
       }
     });

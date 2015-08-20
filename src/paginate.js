@@ -54,12 +54,11 @@ class Paginate extends React.Component {
 
   /**
    * Determine if page is disabled
-   * @param  {Number} page
    * @param  {Object} pageProps property provided by Page
    * @return {Boolean}
    */
-  getPageIsDisabled(page, pageProps) {
-    return pageProps.number === page;
+  getPageIsDisabled(pageProps) {
+    return pageProps.number === this.state.page;
   }
 
   /**
@@ -108,26 +107,27 @@ class Paginate extends React.Component {
         </Page>
       );
     });
+    let lastPage = totalPages < 1 ? 1 : totalPages;
     let previousPage = this.getPreviousPage(1);
-    let nextPage = this.getNextPage(totalPages);
+    let nextPage = this.getNextPage(lastPage);
     return (
       <ul className={this.props.className}>
         <Page
           number={1}
-          isDisabled={this.getPageIsDisabled.bind(this, 1)}
+          isDisabled={this.getPageIsDisabled.bind(this)}
           onClick={this.handlePageClick.bind(this)}>{this.props.labels.first || 'First'}</Page>
         <Page
           number={previousPage}
-          isDisabled={this.getPageIsDisabled.bind(this, previousPage)}
+          isDisabled={this.getPageIsDisabled.bind(this)}
           onClick={this.handlePageClick.bind(this)}>{this.props.labels.prev || 'Prev'}</Page>
         {pages}
         <Page
           number={nextPage}
-          isDisabled={this.getPageIsDisabled.bind(this, nextPage)}
+          isDisabled={this.getPageIsDisabled.bind(this)}
           onClick={this.handlePageClick.bind(this)}>{this.props.labels.next || 'Next'}</Page>
         <Page
-          number={totalPages}
-          isDisabled={this.getPageIsDisabled.bind(this, totalPages)}
+          number={lastPage}
+          isDisabled={this.getPageIsDisabled.bind(this)}
           onClick={this.handlePageClick.bind(this)}>{this.props.labels.last || 'Last'}</Page>
       </ul>
     );
