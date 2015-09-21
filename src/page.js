@@ -84,12 +84,12 @@ Page.propTypes = {
     React.PropTypes.bool,
     React.PropTypes.func,
   ]),
-  style: {},
 };
 
 Page.defaultProps = {
   isActive: false,
   isDisabled: false,
+  style: {},
 };
 
 export default Page;
