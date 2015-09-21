@@ -20,6 +20,7 @@ describe('<Paginate />', () => {
         labels: {},
         perPage: 10,
         numberCells: 8,
+        style: {},
       });
     });
     it('should set default page state', () => {

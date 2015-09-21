@@ -111,7 +111,7 @@ class Paginate extends React.Component {
     let previousPage = this.getPreviousPage(1);
     let nextPage = this.getNextPage(lastPage);
     return (
-      <ul className={this.props.className}>
+      <ul className={this.props.className} style={this.props.style}>
         <Page
           number={1}
           isDisabled={this.getPageIsDisabled.bind(this)}
@@ -140,6 +140,7 @@ Paginate.defaultProps = {
   labels: {},
   numberCells: 8,
   perPage: 10,
+  style: {},
 };
 
 Paginate.propTypes = {

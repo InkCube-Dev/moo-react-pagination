@@ -57,7 +57,8 @@ class Page extends React.Component {
     let isActive = this.getActiveStatus();
     return (
       <li
-        className={this.getClassName({isDisabled, isActive})}>
+        className={this.getClassName({isDisabled, isActive})}
+        style={this.props.style}>
         <a
           onClick={this.handleClick.bind(this)}
           style={!isDisabled ? {cursor: 'pointer'} : {}}
@@ -83,6 +84,7 @@ Page.propTypes = {
     React.PropTypes.bool,
     React.PropTypes.func,
   ]),
+  style: {},
 };
 
 Page.defaultProps = {
